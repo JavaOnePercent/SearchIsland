@@ -31,7 +31,11 @@ public class SearchIsland {
      * проверяет являются ли точки соседними
      */
     public boolean NeighboringPoint(Coordinates now, Coordinates next) {
-        List<Coordinates> neighboring = Arrays.asList(new Coordinates(now.getX() - 1, now.getY()), new Coordinates(now.getX(), now.getY() - 1), new Coordinates(now.getX() + 1, now.getY()), new Coordinates(now.getX(), now.getY() + 1));
+        List<Coordinates> neighboring = Arrays.asList(
+                new Coordinates(now.getX() - 1, now.getY()),
+                new Coordinates(now.getX(), now.getY() - 1),
+                new Coordinates(now.getX() + 1, now.getY()),
+                new Coordinates(now.getX(), now.getY() + 1));
         for (int i = 0; i < neighboring.size(); i++) {
             if (neighboring.get(i).getX() == next.getX() && neighboring.get(i).getY() == next.getY()) {
                 return true;
@@ -50,7 +54,7 @@ public class SearchIsland {
     /**
      * ищет количество островов разной формы
      */
-    public synchronized boolean get() {
+    public synchronized boolean island() {
         while (queueIslands.isEmpty() && livingThread) {
             try {
                 wait();
@@ -88,7 +92,7 @@ public class SearchIsland {
     /**
      * ищет количество островов
      */
-    public synchronized boolean put() {
+    public synchronized boolean uniqueness() {
         if(!islandsPoints.isEmpty()){
             queuePoints.add(islandsPoints.remove(0));
             List<Coordinates> island = new ArrayList<Coordinates>();

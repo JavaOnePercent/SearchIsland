@@ -5,7 +5,7 @@ class Island implements Runnable {
         this.searchIsland=searchIsland;
     }
     public void run(){
-        while(searchIsland.put()){
+        while(searchIsland.uniqueness()){
         }
     }
 }

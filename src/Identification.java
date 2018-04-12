@@ -5,7 +5,7 @@ class Identification implements Runnable {
         this.searchIsland=searchIsland;
     }
     public void run(){
-        while(searchIsland.get()){
+        while(searchIsland.island()){
         }
         searchIsland.show();
     }
